@@ -21,8 +21,8 @@ function decimal_to_time(n) {
 // output: a time array or an array of two values if range is true
 function get_easy_pace(time, units="km", range=false) {
     // bounds and validation checking
-    for (let i = 0; i < time.length; i++) if (isNaN(time[i])) return NaN;
-    if (time[1] < 0 || time[1] > 60 || time[2] < 0 || time[2] > 60) return NaN;
+    for (let i = 0; i < time.length; i++) if (isNaN(time[i])) return [NaN];
+    if (time[1] < 0 || time[1] > 60 || time[2] < 0 || time[2] > 60) return [NaN];
     
     // pace
     let conversion_factor = 1;
@@ -35,8 +35,12 @@ function get_easy_pace(time, units="km", range=false) {
 function format_time(time) {
 
     // adds a zero to any single digit number
-    for (let i = 0; i < time.length; i++) for (let j = 0; j < time[i].length; j++) if (time[i][j] < 10) time[i][j] = "0".concat(time[i][j]);
-
+    for (let i = 0; i < time.length; i++) {
+        for (let j = 0; j < time[i].length; j++) {
+            if (time[i][j] < 10) time[i][j] = "0".concat(time[i][j]);
+            if (isNaN(time[i][j])) return NaN;
+        }
+    }
     // gets the times from the time array
     let s1 = String(time[0][0]) + ":" + String(time[0][1]) + ":" + String(time[0][2]);
     let s2 = "";

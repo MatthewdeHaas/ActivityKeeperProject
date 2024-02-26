@@ -1,6 +1,5 @@
 get_activities(200); // stores the activities in localStorage - TODO: modify so that is returns > 200 activities or if empty return all activities
-//console.log(localStorage.getItem("activities"));
-const activities_json = JSON.parse(localStorage.getItem("activities")); // 
+const activities_json = JSON.parse(localStorage.getItem("activities"));
 
 
 //console.log(JSON.stringify(activities_json));
@@ -149,6 +148,6 @@ function adjust_graphs(volume_type) {
 
 var times = [];
 for (let i = 0; i < activities_json.length; i++) {times.push(activities_json[i].start_date)}
-const number_of_weeks = 8;
+const number_of_weeks = 12;
 let graph = make_chart(document.getElementById("weekly-volume"), partition_data(times, number_of_weeks, "dist", "run"), "Weekly Distance", "Distance (km)");
 
