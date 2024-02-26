@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Activity Keeper</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../styles/style.css">
+
+</head>
+<body>
+
+
+<div class="buttons">
+    <a href="../index.html">
+        <button class="btn" style="vertical-align:middle">
+            <span>Home</span>
+        </button>
+    </a>
+    <a href="create_schedule.html">
+        <button class="btn" id="create-schedule" style="vertical-align:middle">
+            <span>Create Schedule</span>
+        </button>
+    </a>
+
+    <div class="dropdown">
+        <button class="btn">Tools</button>
+        <div class="dropdown-content">
+            <a href="">Find Your Pace</a>
+            <a href="pace_conversion.html">Pace conversions</a>
+        </div>
+    </div>     
+</div>
+
+    <div class="dashboard">
+        <div class="header">
+            <h1 id="heading">Easy Pace Calculator</h1>
+            <hr></hr>
+            <h2>Enter a recent 5k pb</h2>
+        </div>
+
+    
+    
+<div class="fivekm-form">
+    <form action="" id="fivekm-pb">
+        <label for="min">Minutes: </label><br>
+        <input type="text" id="min" name="min" autocomplete="off"><br>
+
+        <label for="sec">Seconds: </label><br>
+        <input type="text" id="sec" name="sec" autocomplete="off"><br><br>
+    </form>
+    <button class="btn" onclick="submit_pb()">Calculate</button>
+    <div class="header">
+        <h3 id="easy-pace-label">
+            Easy Pace: 
+        </h3>
+        <h3 id="easy-pace-range-label">
+            Easy Pace range: 
+        </h3>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="footer">
+    <h3>Created by Matthew deHaas</h3>
+</div>
+
+
+
+<script src="../js/easy_pace.js"></script>
+</body>
+</html>

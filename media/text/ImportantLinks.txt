@@ -1,0 +1,8 @@
+https://www.strava.com/oauth/authorize?client_id=121694&redirect_uri=http://localhost&response_type=code&scope=activity:read
+
+
+- view activities with access token:
+https://www.strava.com/api/v3/athlete/activities?access_token=508568f79cbd7b445f298fbc4fab7c48b1339465
+
+- Use refresh token to get new access token:
+https://www.strava.com/oauth/token?client_id= 121694&client_secret= 80fef8e3ea40f7f4fa1ec5d604179d2d7a30618a&code=d17dc654c7ac1c70730afd3c8d9af13a2bed07e6&grant_type=authorization_code
