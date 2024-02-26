@@ -34,13 +34,51 @@
 
 <div class="dashboard">
     <div class="header">
-        <h1 id="heading">Pace Converter</h1>
+        <h1 id="heading-conv">Pace Converter</h1>
         <hr></hr>
         <h2>Convert between distance, time, and pace</h2>
     </div>
 </div>
     
+<div class="row">
 
+    <div class="time">
+        <label for"time id="time-label">Time:</label><pre>
+        <div id="time-hr-input">
+            <label for="hr">Hours: </label><br>
+            <input type="text" id="time-hr" name="hr" autocomplete="off">
+        </div>
+        <div id="time-min-input">
+            <label for="min">Minutes: </label><br>
+            <input type="text" id="time-min" name="min" autocomplete="off">
+        </div>
+        <div id="time-sec-input">
+            <label for="hr">Seconds: </label><br>
+            <input type="text" id="time-sec" name="sec" autocomplete="off">
+        </div>
+    </div>
+
+    <div class="dist">
+        <label for="dist" id="dist-label">Distance:</label><pre>
+            <div is="dist-input">
+                <label for="dist">km: </label><br>
+                <input type="text" id="dist" name="dist" autocomplete="off">
+            </div>
+    </div>
+
+    <div class="pace">
+        <label for="pace" id="pace-label">Pace(min/km)</label><pre>
+        <div id="pace-min-input">
+            <label for="min">Minutes: </label><br>
+            <input type="text" id="pace-min" name="min" autocomplete="off">
+        </div>
+        <div id="pace-sec-input">
+            <label for="hr">Seconds: </label><br>
+            <input type="text" id="pace-sec" name="sec" autocomplete="off">
+        </div>
+    </div>
+
+</div>
 
 
 <div class="footer">
@@ -49,8 +87,7 @@
 
 
 
-<script src="js/strava_api.js"></script>
-<script src="js/script.js"></script>
+<script src="../js/pace.js"></script>
 
 </body>
 </html>
