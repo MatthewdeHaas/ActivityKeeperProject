@@ -87,20 +87,60 @@ function submit_pb() {
 
 
   // TODO: make this change the actual units (use conversion factor parameter)
-function adjust_buttons(units) {
-    let km_button = document.getElementById("km_btn");
-    let miles_button = document.getElementById("miles_btn");
+function adjust_units_buttons(units) {
+    let km_btn = document.getElementById("km_btn");
+    let miles_btn = document.getElementById("miles_btn");
     switch(units.toLowerCase()) {
         case "km":
-            km_button.style.backgroundColor = "#b26148";
-            miles_button.style.backgroundColor = "#f4511e";
+            km_btn.style.backgroundColor = "#b26148";
+            miles_btn.style.backgroundColor = "#f4511e";
             break;
         case "mile":
-            km_button.style.backgroundColor = "#f4511e";
-            miles_button.style.backgroundColor = "#b26148";
+            km_btn.style.backgroundColor = "#f4511e";
+            miles_btn.style.backgroundColor = "#b26148";
             break;
     }
 }
 
+function adjust_pace_buttons(conv_type) {
+    // buttons
+    let pace_btn = document.getElementById("pace_btn");
+    let dist_btn = document.getElementById("dist_btn");
+    let time_btn = document.getElementById("time_btn");
 
+    // divs
+    let pace_div = document.getElementById("pace_div");
+    let dist_div = document.getElementById("dist_div");
+    let time_div = document.getElementById("time_div");
+
+    switch(conv_type.toLowerCase()) {
+        case "pace":
+            pace_btn.style.backgroundColor = "#b26148";
+            dist_btn.style.backgroundColor = "#f4511e";
+            time_btn.style.backgroundColor = "#f4511e";
+            
+            pace_div.setAttribute("hidden", "hidden");
+            dist_div.removeAttribute("hidden");
+            time_div.removeAttribute("hidden");
+            break;
+        case "dist":
+            pace_btn.style.backgroundColor = "#f4511e";
+            dist_btn.style.backgroundColor = "#b26148";
+            time_btn.style.backgroundColor = "#f4511e";
+
+            pace_div.removeAttribute("hidden");
+            dist_div.setAttribute("hidden", "hidden");
+            time_div.removeAttribute("hidden");
+            break;
+        case "time":
+            pace_btn.style.backgroundColor = "#f4511e";
+            dist_btn.style.backgroundColor = "#f4511e";
+            time_btn.style.backgroundColor = "#b26148";
+
+            pace_div.removeAttribute("hidden");
+            dist_div.removeAttribute("hidden");
+            time_div.setAttribute("hidden", "hidden");
+            break;
+    }
+}
 

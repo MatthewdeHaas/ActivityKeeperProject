@@ -47,7 +47,15 @@
     
 <div class="row">
 
-    <div class="time">
+    <div class="unit-buttons">
+        <button class="btn" id="pace_btn" onclick="adjust_pace_buttons('pace')" style="background-color: #b26148;">Pace</button>
+        <button class="btn" id="dist_btn" onclick="adjust_pace_buttons('dist')">Distance</button>
+        <button class="btn" id="time_btn" onclick="adjust_pace_buttons('time')">Time</button>
+    </div>
+
+
+
+    <div class="time" id="time_div" hidden="hidden">
         <label for"time id="time-label">Time:</label><pre>
         <div id="time-hr-input">
             <label for="hr">Hours: </label><br>
@@ -63,7 +71,7 @@
         </div>
     </div>
 
-    <div class="dist">
+    <div class="dist" id="dist_div" hidden="hidden">
         <label for="dist" id="dist-label">Distance:</label><pre>
             <div is="dist-input">
                 <label for="dist">km: </label><br>
@@ -71,7 +79,7 @@
             </div>
     </div>
 
-    <div class="pace">
+    <div class="pace" id="pace_div" hidden="hidden">
         <label for="pace" id="pace-label">Pace(min/km)</label><pre>
         <div id="pace-min-input">
             <label for="min">Minutes: </label><br>
