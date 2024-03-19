@@ -11,7 +11,7 @@
 
 
 <div class="buttons">
-    <a href="../index.html">
+    <a href="../home.html">
         <button class="btn" style="vertical-align:middle">
             <span>Home</span>
         </button>
@@ -28,12 +28,17 @@
             <a href="">Find Your Pace</a>
             <a href="pace_conversion.html">Pace conversions</a>
         </div>
-    </div>     
+    </div>
+    <a href="../index.html">
+        <button class="btn" style="vertical-align:middle">
+            <span>Logout</span>
+        </button>
+    </a> 
 </div>
 
     <div class="dashboard">
         <div class="header">
-            <h1 id="heading-easy">Easy Pace Calculator</h1>
+            <h1 id="heading-easy">Pace Calculator</h1>
             <hr></hr>
             <h2>Enter a recent 5k pb</h2>
         </div>
@@ -48,14 +53,27 @@
         <label for="sec">Seconds: </label><br>
         <input type="text" id="sec" name="sec" autocomplete="off"><br><br>
     </form>
-    <button class="btn" onclick="submit_pb()">Calculate</button>
+    <button class="btn" id="calc_btn" onclick="submit_pb()">Calculate</button>
+    <div class="unit-buttons">
+        <label>Units: </label>
+        <button class="btn" id="km_btn" onclick="adjust_buttons('km')" style="background-color: #b26148;">km</button>
+        <button class="btn" id="miles_btn" onclick="adjust_buttons('mile')">miles</button>
+    </div>
     <div class="header">
+        <h3 id="10k-pace-label">
+            10k:
+        </h3>
+        <h3 id="tempo-pace-label">
+            Tempo: 
+        </h3>
         <h3 id="easy-pace-label">
-            Easy Pace: 
+            Easy: 
         </h3>
+        <!--
         <h3 id="easy-pace-range-label">
-            Easy Pace range: 
+            Easy range: 
         </h3>
+        -->
     </div>
 </div>
 
@@ -73,5 +91,6 @@
 
 
 <script src="../js/pace.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>

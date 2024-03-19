@@ -11,59 +11,23 @@
 <body>
 
 
-<div class="buttons">
-    <a href="">
-        <button class="btn" style="vertical-align:middle">
-            <span>Home</span>
+<div>
+    <a href="home.html">
+        <button id="login-with-strava">
+            <img src="media/images/btn_strava_connectwith_orange/btn_strava_connectwith_orange.svg"></img>
         </button>
     </a>
-    <a href="pages/create_schedule.html">
-        <button class="btn" id="create-schedule" style="vertical-align:middle">
-            <span>Create Schedule</span>
-        </button>
-    </a>
-
-    <div class="dropdown">
-        <button class="btn" style="vertical-align:middle">
-            <span>Tools</span>
-        </button>
-        <div class="dropdown-content">
-            <a href="pages/easy_pace.html">Find Your Pace</a>
-            <a href="pages/pace_conversion.html">Pace conversions</a>
-        </div>
-    </div>     
 </div>
 
 
-    <div class="dashboard">
-        <div class="header">
-            <h1 id="heading">Not Strava</h1>
-            <hr></hr>
-            <h2>Dashboard</h2>
-        </div>
-        
-        
-        <div class="row"> 
-            <div class="graphs">Exercise Volume
-                <button class="graph-btn" id="time-btn" onclick="adjust_graphs('time')">Time</button>
-                <button class="graph-btn" id="dist-btn" onclick="adjust_graphs('dist')" style="background-color: #b26148;">Distance</button>
-                <button class="graph-btn" id="elev-btn" onclick="adjust_graphs('elev')">Elevation</button>
-                <canvas id="weekly-volume"></canvas>
-            </div>
-            <div class="progress">Progress
-                <div>
-                    <button class="btn">
-                        <span>Set goal</span>
-                        </button>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="dashboard">
+    <div class="header">
+        <h1 id="heading">Activity Keeper</h1>
+        <hr></hr>
+        <h2>Login with Strava to visualise your stats, calculate paces, and schedule mileage</h2>
     </div>
     
     
-
-
 
 <div class="footer">
     <h3>Created by Matthew deHaas</h3>

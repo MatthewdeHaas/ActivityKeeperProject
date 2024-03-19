@@ -148,6 +148,6 @@ function adjust_graphs(volume_type) {
 
 var times = [];
 for (let i = 0; i < activities_json.length; i++) {times.push(activities_json[i].start_date)}
-const number_of_weeks = 50;
+const number_of_weeks = 12;
 let graph = make_chart(document.getElementById("weekly-volume"), partition_data(times, number_of_weeks, "dist", "run"), "Weekly Distance", "Distance (km)");
 

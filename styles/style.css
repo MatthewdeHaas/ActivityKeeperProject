@@ -8,6 +8,7 @@ body {
     width: 100%;
   }
 
+
   .btn {
     display: inline-block;
     border-radius: 4px;
@@ -196,4 +197,5 @@ body {
     padding: 5px;
     text-align: center;
     background: darkgray;
+    font-size: 11px;
   }
