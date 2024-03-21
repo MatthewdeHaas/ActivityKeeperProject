@@ -48,26 +48,33 @@
 <div class="row">
 
     <div class="unit-buttons">
-        <button class="btn" id="pace_btn" onclick="adjust_pace_buttons('pace')" style="background-color: #b26148;">Pace</button>
+        <button class="btn" id="pace_btn" onclick="adjust_pace_buttons('pace')">Pace</button>
         <button class="btn" id="dist_btn" onclick="adjust_pace_buttons('dist')">Distance</button>
         <button class="btn" id="time_btn" onclick="adjust_pace_buttons('time')">Time</button>
+        <div style="margin-top: 100px">
+            <button class="btn" id="conv_btn" onclick="submit_conversion()">Calculate</button>
+        </div>
+        <div>
+            <label hidden="hidden" id="pace_lbl">Pace: </label>
+            <label hidden="hidden" id="dist_lbl">Distance: </label>
+            <label hidden="hidden" id="time_lbl">Time: </label>
+        </div>
     </div>
-
 
 
     <div class="time" id="time_div" hidden="hidden">
         <label for"time id="time-label">Time:</label><pre>
         <div id="time-hr-input">
             <label for="hr">Hours: </label><br>
-            <input type="text" id="time-hr" name="hr" autocomplete="off">
+            <input type="text" id="time_hr_inp" name="hr" autocomplete="off">
         </div>
         <div id="time-min-input">
             <label for="min">Minutes: </label><br>
-            <input type="text" id="time-min" name="min" autocomplete="off">
+            <input type="text" id="time_min_inp" name="min" autocomplete="off">
         </div>
         <div id="time-sec-input">
             <label for="hr">Seconds: </label><br>
-            <input type="text" id="time-sec" name="sec" autocomplete="off">
+            <input type="text" id="time_sec_inp" name="sec" autocomplete="off">
         </div>
     </div>
 
@@ -75,22 +82,21 @@
         <label for="dist" id="dist-label">Distance:</label><pre>
             <div is="dist-input">
                 <label for="dist">km: </label><br>
-                <input type="text" id="dist" name="dist" autocomplete="off">
+                <input type="text" id="dist_inp" name="dist" autocomplete="off">
             </div>
     </div>
 
     <div class="pace" id="pace_div" hidden="hidden">
-        <label for="pace" id="pace-label">Pace(min/km)</label><pre>
+        <label for="pace" id="pace-label">Pace:</label><pre>
         <div id="pace-min-input">
             <label for="min">Minutes: </label><br>
-            <input type="text" id="pace-min" name="min" autocomplete="off">
+            <input type="text" id="pace_min_inp" name="min" autocomplete="off">
         </div>
         <div id="pace-sec-input">
             <label for="hr">Seconds: </label><br>
-            <input type="text" id="pace-sec" name="sec" autocomplete="off">
+            <input type="text" id="pace_sec_inp" name="sec" autocomplete="off">
         </div>
     </div>
-
 </div>
 
 
