@@ -11,7 +11,7 @@ body {
 
   .btn {
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #f4511e;
     border: none;
     color: white;
@@ -177,21 +177,54 @@ body {
     text-align: left;
     color: #f4511e;
     font-size: 18px;
+    
   }
 
   input {
     padding: 12px 20px;
     box-sizing: border-box;
-    background-color: #f4511e;
-    color: white;
+    border-radius: 8px;
+    background-color: #eda892;
+    color: black;
+    user-select: none;
   }
 
+
+  .scheduler {
+    position: relative;
+  }
+
+
+  .form-popup {
+    z-index: 9;
+    text-align: center;
+  }
+
+  .session-time-lbl {
+    display: inline-block;
+    margin: 25px 25px;
+  }
+
+  .session-time-input {
+    padding: 10px 10px;
+    box-sizing: border-box;
+    background-color: white;
+    color: black;
+  }
 
 
   .grid-container {
     display: inline-grid;
     gap: 50px 50px;
   }
+
+  #calendar {
+    max-width: 1000px;
+    max-height: 500px;
+    margin: auto auto;
+    
+  }
+
 
   .footer {
     padding: 5px;

@@ -2,7 +2,7 @@ get_activities(200); // stores the activities in localStorage - TODO: modify so 
 const activities_json = JSON.parse(localStorage.getItem("activities"));
 
 
-//console.log(JSON.stringify(activities_json));
+console.log(activities_json[0].id);
 
 function partition_data(activity_data, number_of_weeks, data_type, sport_type=null) {
   var data_x = [];
@@ -70,7 +70,7 @@ function make_chart(chart_id, data, title, label_y) {
         datasets: [{
           label: label_y,
             fill: false,
-            lineTension: 0.3,
+            lineTension: 0.25,
             backgroundColor: "rgba(244, 81, 30, 1.0)",
             borderColor: "rgba(244, 81, 30, 0.5)",
             data: data[1]
@@ -148,6 +148,6 @@ function adjust_graphs(volume_type) {
 
 var times = [];
 for (let i = 0; i < activities_json.length; i++) {times.push(activities_json[i].start_date)}
-const number_of_weeks = 12;
+const number_of_weeks = 24;
 let graph = make_chart(document.getElementById("weekly-volume"), partition_data(times, number_of_weeks, "dist", "run"), "Weekly Distance", "Distance (km)");
 

@@ -27,7 +27,7 @@
         <button class="btn">Tools</button>
         <div class="dropdown-content">
             <a href="easy_pace.html">Find Your Pace</a>
-            <a href="">Pace conversions</a>
+            <a href="">Pace Conversions</a>
         </div>
     </div>
     <a href="../index.html">
@@ -60,44 +60,48 @@
             <label hidden="hidden" id="time_lbl">Time: </label>
         </div>
     </div>
-
-
-    <div class="time" id="time_div" hidden="hidden">
-        <label for"time id="time-label">Time:</label><pre>
-        <div id="time-hr-input">
-            <label for="hr">Hours: </label><br>
-            <input type="text" id="time_hr_inp" name="hr" autocomplete="off">
-        </div>
-        <div id="time-min-input">
-            <label for="min">Minutes: </label><br>
-            <input type="text" id="time_min_inp" name="min" autocomplete="off">
-        </div>
-        <div id="time-sec-input">
-            <label for="hr">Seconds: </label><br>
-            <input type="text" id="time_sec_inp" name="sec" autocomplete="off">
-        </div>
-    </div>
-
-    <div class="dist" id="dist_div" hidden="hidden">
-        <label for="dist" id="dist-label">Distance:</label><pre>
-            <div is="dist-input">
-                <label for="dist">km: </label><br>
-                <input type="text" id="dist_inp" name="dist" autocomplete="off">
+    <div id="multiple-form-div">
+    <form class="row" id="pace-conv-form">
+        <div class="time" id="time_div" hidden="hidden">
+            <label for"time id="time-label">Time:</label><pre>
+            <div id="time-hr-input">
+                <label for="hr">Hours: </label><br>
+                <input type="text" id="time_hr_inp" name="hr" autocomplete="off">
             </div>
+            <div id="time-min-input">
+                <label for="min">Minutes: </label><br>
+                <input type="text" id="time_min_inp" name="min" autocomplete="off">
+            </div>
+            <div id="time-sec-input">
+                <label for="hr">Seconds: </label><br>
+                <input type="text" id="time_sec_inp" name="sec" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="dist" id="dist_div" hidden="hidden">
+            <label for="dist" id="dist-label">Distance:</label><pre>
+                <div is="dist-input">
+                    <label for="dist">km: </label><br>
+                    <input type="text" id="dist_inp" name="dist" autocomplete="off">
+                </div>
+        </div>
+
+        <div class="pace" id="pace_div" hidden="hidden">
+            <label for="pace" id="pace-label">Pace:</label><pre>
+            <div id="pace-min-input">
+                <label for="min">Minutes: </label><br>
+                <input type="text" id="pace_min_inp" name="min" autocomplete="off">
+            </div>
+            <div id="pace-sec-input">
+                <label for="hr">Seconds: </label><br>
+                <input type="text" id="pace_sec_inp" name="sec" autocomplete="off">
+            </div>
+        </div>
+    </form>
     </div>
 
-    <div class="pace" id="pace_div" hidden="hidden">
-        <label for="pace" id="pace-label">Pace:</label><pre>
-        <div id="pace-min-input">
-            <label for="min">Minutes: </label><br>
-            <input type="text" id="pace_min_inp" name="min" autocomplete="off">
-        </div>
-        <div id="pace-sec-input">
-            <label for="hr">Seconds: </label><br>
-            <input type="text" id="pace_sec_inp" name="sec" autocomplete="off">
-        </div>
-    </div>
 </div>
+
 
 
 <div class="footer">

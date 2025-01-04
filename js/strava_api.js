@@ -4,6 +4,10 @@ async function request_activities(res, num) {
     return response;
 }
 
+async function request_streams(res) {
+    const streams_link = `https://www.strava.com/api/v3/athlete/activities?&access_token=${res.access_token}`
+}
+
 async function reAuthorize(num) {
     const response = await fetch("https://www.strava.com/oauth/token", {
         method: 'post',

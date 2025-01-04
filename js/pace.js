@@ -30,7 +30,7 @@ function get_pace(distance, time, units="km") {
     if (time[1] < 0 || time[1] > 60 || time[2] < 0 || time[2] > 60) return [NaN];
 
     let conversion_factor = 1;
-    if (units.trim().toLowerCase() == "mile") conversion_factor = 1.609; // mile conversion factor
+    if (units.trim().toLowerCase() == "mile") conversion_factor = 1.609344; // mile conversion factor
 
     // pace = time / distance
     return [decimal_to_time(time_to_decimal(time) / distance * conversion_factor)];
@@ -43,7 +43,7 @@ function get_distance(pace, time, units="km") {
     if (time[1] < 0 || time[1] > 60 || time[2] < 0 || time[2] > 60) return [NaN];
 
     let conversion_factor = 1;
-    if (units.trim().toLowerCase() == "mile") conversion_factor = 1.609; // mile conversion factor
+    if (units.trim().toLowerCase() == "mile") conversion_factor = 1.609344; // mile conversion factor
 
     // distance = time / pace
     return time_to_decimal(time) / time_to_decimal(pace) * conversion_factor;
@@ -53,7 +53,7 @@ function get_distance(pace, time, units="km") {
 function get_time(pace, distance, units="km") {
 
     let conversion_factor = 1;
-    if (units.trim().toLowerCase() == "mile") conversion_factor = 1.609; // mile conversion factor
+    if (units.trim().toLowerCase() == "mile") conversion_factor = 1.609344; // mile conversion factor
 
     // time = pace * distance
     return [decimal_to_time(time_to_decimal(pace) * distance)];
@@ -71,7 +71,7 @@ function calculate_pace(time, units="km", speed="easy", range=false) {
     
     // pace
     let conversion_factor = 1;
-    if (units.trim().toLowerCase() == "mile") conversion_factor = 1.609; // mile conversion factor
+    if (units.trim().toLowerCase() == "mile") conversion_factor = 1.609344; // mile conversion factor
     let pb_speed = get_speed(5, time); // speed in km/hr for a 5k
 
     switch (speed.toLowerCase()) {
@@ -110,10 +110,16 @@ function format_time(time) {
     return s1 + s2;
 }
 
-function submit_pb() {
+function parse_time() {
     let time = [0, document.getElementById("min").value, document.getElementById("sec").value];
     for (let i = 0; i < time.length; i++) if (time[i] == "") time[i] = 0;
     time = time.map((x) => parseInt(x));
+    return time;
+}
+
+
+function submit_pb() {
+    let time = parse_time();
 
     let units;
     document.getElementById("km_btn").style.backgroundColor.toString() == "rgb(178, 97, 72)" ? units = "km" : units = "mile";
@@ -122,12 +128,20 @@ function submit_pb() {
     let tenkm_pace_text = document.getElementById("10k-pace-label").innerText;
     let tempo_pace_text = document.getElementById("tempo-pace-label").innerText;
     let easy_pace_text = document.getElementById("easy-pace-label").innerText;
-    //let easy_pace_range_text = document.getElementById("easy-pace-range-label").innerText;
+    let easy_pace_range_text = document.getElementById("easy-pace-range-label").innerText;
 
     document.getElementById("10k-pace-label").innerText = tenkm_pace_text.substring(0, tenkm_pace_text.indexOf(":") + 1) + " " + format_time(calculate_pace(time, units, speed="10k", range=true)) + " min/" + units.toString();
     document.getElementById("tempo-pace-label").innerText = tempo_pace_text.substring(0, tempo_pace_text.indexOf(":") + 1) + " " + format_time(calculate_pace(time, units, speed="tempo", range=true)) +  " min/" + units.toString();
     document.getElementById("easy-pace-label").innerText = easy_pace_text.substring(0, easy_pace_text.indexOf(":") + 1) + " " + format_time(calculate_pace(time, units, speed="easy", range=false)) + " min/" + units.toString();
-    //document.getElementById("easy-pace-range-label").innerText = easy_pace_range_text.substring(0, easy_pace_range_text.indexOf(":") + 1) + " " + format_time(calculate_pace(time, units, speed="easy", range=true)) + " min/" + units;
+    document.getElementById("easy-pace-range-label").innerText = easy_pace_range_text.substring(0, easy_pace_range_text.indexOf(":") + 1) + " " + format_time(calculate_pace(time, units, speed="easy", range=true)) + " min/" + units;
+  }
+
+  function save_pb() {
+    
+    localStorage.setItem("five-km-pb", parse_time());
+
+    // PLAY
+    console.log(localStorage.getItem("five-km-pb"));
   }
 
 
@@ -188,6 +202,7 @@ function adjust_pace_buttons(conv_type) {
             time_div.setAttribute("hidden", "hidden");
             break;
     }
+    
 }
 
 
@@ -235,5 +250,6 @@ function submit_conversion(){
        document.getElementById("time_lbl").innerText = time_lbl.innerText.substring(0, time_lbl.innerText.indexOf(":") + 1) + " " + format_time(get_time(pace, dist));
     }
 
+    document.getElementById("pace-conv-form").reset();
 }
 
