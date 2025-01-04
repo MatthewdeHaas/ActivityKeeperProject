@@ -7,13 +7,12 @@
 
 ### Current Timeline:
 
-- [ ] Implement/discard any lingering ui additions to the site
+- [ ] Implement/discard any lingering ui additions to the site:
     - [ ] Set goal
     - [ ] Customisable graph
     - [ ] Title and tab logo icon
     - [ ] Header on the scheduler
-- [ ] If possible, make the app compatible with any porfile login (I refuse to use React in anyway)
-- [ ] Spend time making the UI look more finished/not so thrown together (Tailwind)
+- [ ] Spend time making the UI look more finished/not so thrown together (Tailwind):
     - [ ] Home
     - [ ] Find Pace
     - [ ] Pace Calculator
