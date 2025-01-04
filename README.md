@@ -19,9 +19,3 @@
     - [ ] Pace Calculator
     - [ ] Schedular
     - [ ] Login
-
-
-
-|  Title 1  |  Title 2  |
-| --------- | --------- |
-| Content 1 | Content 2 |
