@@ -1,4 +1,4 @@
-get_activities(200); // stores the activities in localStorage - TODO: modify so that is returns > 200 activities or if empty return all activities
+get_activities(50); // stores the activities in localStorage - TODO: modify so that is returns > 200 activities or if empty return all activities
 const activities_json = JSON.parse(localStorage.getItem("activities"));
 
 
@@ -62,6 +62,9 @@ function get_data_by_type(data_type, sport_type, index) {
   return (sport_type == null || activities_json[index].type.toLowerCase() == sport_type) ? data : 0;
 }
 
+theme = "#171717"
+
+
 function make_chart(chart_id, data, title, label_y) {
  return new Chart(chart_id, {
     type: "line",
@@ -69,10 +72,9 @@ function make_chart(chart_id, data, title, label_y) {
         labels: data[0],
         datasets: [{
           label: label_y,
-            fill: false,
-            lineTension: 0.25,
-            backgroundColor: "rgba(244, 81, 30, 1.0)",
-            borderColor: "rgba(244, 81, 30, 0.5)",
+            fill: true,
+            lineTension: 0.3,
+            borderColor: "#171717",
             data: data[1]
         }]
     },
@@ -81,7 +83,7 @@ function make_chart(chart_id, data, title, label_y) {
           display: true,
           text: title,
           fontSize: 24,
-          fontColor: "rgba(244, 81, 30, 1.0)"
+          fontColor: theme
         },
         legend: {display: false},
         scales: {
@@ -90,10 +92,10 @@ function make_chart(chart_id, data, title, label_y) {
               display: true,
               labelString: "Weeks",
               fontSize: 24,
-              fontColor: "rgba(244, 81, 30, 1.0)"
+              fontColor: theme
             },
             gridLines: {
-              display: false
+              display: true
             }
           }
           ],
@@ -103,7 +105,7 @@ function make_chart(chart_id, data, title, label_y) {
               display: true,
               labelString: label_y,
               fontSize: 24,
-              fontColor: "rgba(244, 81, 30, 1.0)"
+              fontColor: theme
             },
             gridLines: {
               display: false
@@ -119,25 +121,33 @@ function adjust_graphs(volume_type) {
   let time_btn = document.getElementById("time-btn");
   let dist_btn = document.getElementById("dist-btn");
   let elev_btn = document.getElementById("elev-btn");
+  time_btn.classList.remove("bg-blue-900");
+  time_btn.classList.remove("bg-blue-950");
+  dist_btn.classList.remove("bg-blue-900");
+  dist_btn.classList.remove("bg-blue-950");
+  elev_btn.classList.remove("bg-blue-900");
+  elev_btn.classList.remove("bg-blue-950");
+
+
   switch(volume_type) {
     case "time":
-      time_btn.style.backgroundColor = "#b26148"
-      dist_btn.style.backgroundColor = "#f4511e"
-      elev_btn.style.backgroundColor = "#f4511e"
+      time_btn.classList.add("bg-blue-950");
+      dist_btn.classList.add("bg-blue-900");
+      elev_btn.classList.add("bg-blue-900");
       graph.destroy();
       graph = make_chart(document.getElementById("weekly-volume"), partition_data(times, number_of_weeks, "time"), "Weekly Time", "Time (hrs)");
       break;
     case "dist":
-      time_btn.style.backgroundColor = "#f4511e"
-      dist_btn.style.backgroundColor = "#b26148"
-      elev_btn.style.backgroundColor = "#f4511e"
+      time_btn.classList.add("bg-blue-900");
+      dist_btn.classList.add("bg-blue-950");
+      elev_btn.classList.add("bg-blue-900");
       graph.destroy();
       graph = make_chart(document.getElementById("weekly-volume"), partition_data(times, number_of_weeks, "dist", "run"), "Weekly Distance (run)", "Distance (km)");
       break;
     case "elev":
-      time_btn.style.backgroundColor = "#f4511e"
-      dist_btn.style.backgroundColor = "#f4511e"
-      elev_btn.style.backgroundColor = "#b26148"
+      time_btn.classList.add("bg-blue-900");
+      dist_btn.classList.add("bg-blue-900");
+      elev_btn.classList.add("bg-blue-950");
       graph.destroy();
       graph = make_chart(document.getElementById("weekly-volume"), partition_data(times, number_of_weeks, "elev"), "Weekly Elevation", "Elevation (m)");
       break;
