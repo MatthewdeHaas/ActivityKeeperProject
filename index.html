@@ -1,42 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Activity Keeper</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/style.css">
+
+<title>Running Tool</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="media/images/favicon.ico">
+
 </head>
 <body>
 
+    <!-- Background -->
+    <div class="overflow-hidden overscroll-none fixed w-screen h-screen flex flex-col bg-gradient-to-t from-blue-600 to-blue-800"></div>
+        <!-- Navbar -->
+         <div class="relative text-white w-full flex flex-row p-4 z-10">
+            <!-- Home -->
+            <a href="">
+                <button class="text-white bg-blue-900 hover:bg-blue-950 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none shadow-lg">Home</button>
+            </a>
+            <!-- Create Schedule -->
+            <a href="pages/create_schedule.html">
+                <button class="text-white bg-blue-900 hover:bg-blue-950 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none shadow-lg">Create Schedule</button>
+            </a>
+             <div id="tools-container">
+                <button id="tools-btn" onclick="toggle_navbar_dropdown()" class="inline-flex text-white bg-blue-900 hover:bg-blue-950 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none shadow-lg">
+                    <p class="pr-2">Tools</p>
+                    <i class=" pt-1 fa fa-angle-down"></i>
+                </button>
+                <!-- Tools -->
+                <div id="tools-dropdown" class="invisible z-10 w-max rounded-md text-white bg-blue-900 shadow-lg" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                    <div class="flex flex-col w-full items-center" role="none">
+                        <a href="pages/easy_pace.html">
+                            <button class="flex px-4 py-2 rounded-lg text-sm hover:bg-blue-950">Find Your Pace</button>
+                        </a>
+                        <a href="pages/pace_conversion.html">
+                            <button class="flex px-4 py-2 rounded-lg text-sm hover:bg-blue-950">Pace Conversions</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col grow items-end pl-5">
+                <a href="https://github.com/MatthewdeHaas/ActivityKeeperProject" target="_blank">
+                    <i class="fa fa-github text-2xl"></i>
+                </a>
+            </div>
+         </div>
 
-<div>
-    <a href="home.html">
-        <button id="login-with-strava">
-            <img src="media/images/btn_strava_connectwith_orange/btn_strava_connectwith_orange.svg"></img>
-        </button>
-    </a>
-</div>
+         <!-- Header -->
+        <div class="relative flex flex-row justify-center text-white text-6xl font-medium">
+            <h1>Matt's Running Tool</h1>
+        </div>
 
 
-<div class="dashboard">
-    <div class="header">
-        <h1 id="heading">Activity Keeper</h1>
-        <hr></hr>
-        <h2>Login with Strava to visualise your stats, calculate paces, and schedule mileage</h2>
+        <!-- Main content (only thing differnt per page) -->
+        <div class="relative overflow-auto w-screen h-min flex flex-row pb-10">
+            <!-- Main (TOOD) -->
+            <div class="grow">
+                <canvas id="weekly-volume"></canvas>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="flex flex-row">
+                <div class="grow">
+                    <button id="dist-btn" onclick="adjust_graphs('dist')" class="text-white bg-blue-900 hover:bg-blue-950 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none shadow-lg">Distance</button>
+                    <button id="time-btn" onclick="adjust_graphs('time')" class="text-white bg-blue-900 hover:bg-blue-950 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none shadow-lg">Time</button>
+                    <button id="elev-btn" onclick="adjust_graphs('elev')" class="text-white bg-blue-900 hover:bg-blue-950 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none shadow-lg">Elevation</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+         <div class="relative flex flex-row justify-center items-end text-white">
+            <i class="fa fa-copyright text-sm"></i> 
+            <p class="pl-1 text-xs">2024-2025 Matthew deHaas inc. | No rights reserved (don't know how)</p>
+         </div>
+
     </div>
-    
-    
 
-<div class="footer">
-    <h3>Created by Matthew deHaas</h3>
-</div>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-
-
-<script src="js/strava_api.js"></script>
-<script src="js/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b9ed5d7fd5.js"></script>
+    <script src="js/strava_api.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/utils.js"></script>
 
 </body>
 </html>
