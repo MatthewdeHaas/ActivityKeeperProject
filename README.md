@@ -7,14 +7,14 @@
 
 ### Current Timeline:
 
-- [ ] Implement/discard any lingering ui additions to the site:
+- Implement/discard any lingering ui additions to the site:
     - [ ] Set goal
     - [ ] Customisable graph
     - [ ] Title and tab logo icon
     - [ ] Header on the scheduler
-- [ ] Spend time making the UI look more finished/not so thrown together (Tailwind):
-    - [ ] Home
+    - [ ] Remove the current file index.html and rename home.html to index.html
+- Spend time making the UI look more finished/not so thrown together (Tailwind):
+    - [x] Home
     - [ ] Find Pace
     - [ ] Pace Calculator
-    - [ ] Schedular
-    - [ ] Login
+    - [ ] Scheduler
